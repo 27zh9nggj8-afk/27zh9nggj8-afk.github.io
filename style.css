@@ -1,0 +1,157 @@
+@font-face {
+  font-family: 'SUIT Variable';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url('/fonts/SUIT-Variable.woff2') format('woff2-variations');
+  font-display: swap;
+}
+
+:root {
+  --bg: #f7f7f8;
+  --card: #ffffff;
+  --border: #e6e6ea;
+  --text: #1c1c1e;
+  --text-2: #6e6e73;
+  --text-3: #aeaeb2;
+  --accent: #0071e3;
+  --accent-soft: #eef5fe;
+  --ok: #1a7f37;
+  --ok-soft: #eef7f0;
+  --radius: 16px;
+  --radius-s: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161618;
+    --card: #202024;
+    --border: #323236;
+    --text: #f2f2f4;
+    --text-2: #9c9ca3;
+    --text-3: #6a6a70;
+    --accent: #3395ec;
+    --accent-soft: #1d2a3a;
+    --ok: #5cbf74;
+    --ok-soft: #1e2c21;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'SUIT Variable', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Segoe UI', 'Malgun Gothic', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px 40px;
+}
+
+.wrap.narrow { max-width: 640px; }
+
+/* ---------- 스토어 허브 ---------- */
+
+.store-head { margin-bottom: 36px; }
+.store-head h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.4px; }
+.store-head p { color: var(--text-2); margin-top: 8px; font-size: 15px; }
+
+.app-grid { display: grid; gap: 14px; }
+
+.app-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.app-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+.app-card img { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; }
+
+.app-card .t { font-size: 16.5px; font-weight: 700; }
+.app-card .d { font-size: 13.5px; color: var(--text-2); margin-top: 3px; }
+.app-card .price { font-size: 13px; font-weight: 700; color: var(--accent); margin-top: 6px; }
+
+.app-card.soon { opacity: 0.55; pointer-events: none; }
+
+/* ---------- 상품 페이지 ---------- */
+
+.product-hero { text-align: center; margin-bottom: 32px; }
+.product-hero img { width: 84px; height: 84px; border-radius: 20px; margin-bottom: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+.product-hero h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+.product-hero p { color: var(--text-2); margin-top: 10px; font-size: 15.5px; }
+
+.section-title { font-size: 13px; font-weight: 700; color: var(--text-2); margin: 32px 0 12px; letter-spacing: 0.2px; }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.card + .card { margin-top: 10px; }
+
+.feature-list { display: grid; gap: 14px; }
+.feature-list .item { display: flex; gap: 12px; align-items: flex-start; }
+.feature-list .emoji { font-size: 20px; flex-shrink: 0; }
+.feature-list .t { font-weight: 700; font-size: 15px; }
+.feature-list .d { font-size: 13.5px; color: var(--text-2); margin-top: 2px; }
+
+.price-card { text-align: center; padding: 28px 20px; }
+.price-card .amount { font-size: 32px; font-weight: 800; margin: 8px 0 2px; }
+.price-card .note { font-size: 13px; color: var(--text-2); }
+
+.cta {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  border-radius: var(--radius-s);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  margin-top: 16px;
+}
+
+.cta:hover { opacity: 0.9; }
+
+.back-link { display: inline-block; margin-bottom: 20px; color: var(--text-2); font-size: 13.5px; text-decoration: none; }
+.back-link:hover { color: var(--text); }
+
+ul.plain { list-style: none; padding: 0; }
+ul.plain li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text-2); }
+ul.plain li:last-child { border-bottom: 0; }
+ul.plain b { color: var(--text); }
+
+/* ---------- 법적 정보 푸터 (전자상거래법 표준 고시) ---------- */
+
+.legal-footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-3);
+  line-height: 1.9;
+}
+
+.legal-footer .links { margin-bottom: 10px; }
+.legal-footer .links a { color: var(--text-2); text-decoration: underline; margin-right: 14px; font-size: 12.5px; }
+
+/* ---------- 약관/정책 문서 ---------- */
+
+.doc h1 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+.doc .updated { font-size: 12.5px; color: var(--text-3); margin-bottom: 28px; }
+.doc h2 { font-size: 16px; font-weight: 700; margin: 28px 0 10px; }
+.doc p, .doc li { font-size: 14px; color: var(--text-2); line-height: 1.8; }
+.doc ul, .doc ol { padding-left: 20px; margin-bottom: 10px; }
